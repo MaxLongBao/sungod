@@ -3,7 +3,7 @@ import WindowFrame from './WindowFrame';
 import './App.css';
 
 const App = () => {
-   const [products, setProducts] = useState(null);
+   const [products, setProducts] = useState([]);
    const [scenes, setScenes] = useState(null);
 
    useEffect(() => {
@@ -42,7 +42,7 @@ const App = () => {
       <div className="app__close__button flex justify-end">
         <p className="underline cursor-pointer">Close</p>
       </div>
-      <WindowFrame />
+      <WindowFrame products={products} />
     </div>
   );
 }
