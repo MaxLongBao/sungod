@@ -26,7 +26,7 @@ const App = () => {
         .then(data => {
           if (data) {
             const selectedElements = data.map(item => ({
-              nameEyeImg: item.nakedEyeImage.responsiveImage.src,
+              nakedEyeImage: item.nakedEyeImage.responsiveImage.src,
               sceneImg: item.sceneImages
             }));
             setScenes(selectedElements);
@@ -42,7 +42,7 @@ const App = () => {
       <div className="app__close__button flex justify-end">
         <p className="underline cursor-pointer">Close</p>
       </div>
-      <WindowFrame products={products} />
+      <WindowFrame products={products} scenes={scenes} />
     </div>
   );
 }
