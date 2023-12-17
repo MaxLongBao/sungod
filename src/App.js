@@ -5,14 +5,15 @@ import './App.css';
 const App = () => {
    const [products, setProducts] = useState([]);
    const [scenes, setScenes] = useState(null);
+   const [sceneSelector, setSceneSelector] = useState(null);
 
    useEffect(() => {
      fetch('https://www.sungod.co/products/9150/renegades?pdp=1')
        .then(response => response.json())
        .then(data => {
         if (data?.renegades?.parts[1].options) {
-          const selectedElements = data.renegades.parts[1].options.map(({ id, name, sku }) => ({ id, name, sku }));
-          setProducts(selectedElements);
+          const selectedProducts = data.renegades.parts[1].options.map(({ id, name, sku }) => ({ id, name, sku }));
+          setProducts(selectedProducts);
         } else {
           // to do: handle error
           console.error('Invalid data structure');
@@ -25,11 +26,13 @@ const App = () => {
         .then(response => response.json())
         .then(data => {
           if (data) {
-            const selectedElements = data.map(item => ({
+            const selectedLensScenes = data.map(item => ({
               nakedEyeImage: item.nakedEyeImage.responsiveImage.src,
               sceneImg: item.sceneImages
             }));
-            setScenes(selectedElements);
+            const selectedScenes = data.map(item => item.nakedEyeImage.responsiveImage.src);
+            setScenes(selectedLensScenes);
+            setSceneSelector(selectedScenes);
           } else {
             // to do: handle error
             console.error('Invalid data structure');
@@ -42,7 +45,7 @@ const App = () => {
       <div className="app__close__button flex justify-end">
         <p className="underline cursor-pointer">Close</p>
       </div>
-      <WindowFrame products={products} scenes={scenes} />
+      <WindowFrame products={products} scenes={scenes} sceneSelector={sceneSelector} />
     </div>
   );
 }

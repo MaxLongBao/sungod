@@ -1,21 +1,21 @@
-const Scene = ({ scenes, selectedLens }) => {
+const Scene = ({ scenes, selectedLens, selectedScene }) => {
 
 const imageStyle = {
   clipPath: 'polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%)',
 };
 
-  return (
+return (
     <div className='scene relative h-full'>
       {
-        selectedLens && scenes[0].sceneImg[selectedLens] ? (
+        selectedLens && scenes[selectedScene].sceneImg[selectedLens] ? (
         <>
           <img
-          src={scenes[0].nakedEyeImage}
+          src={scenes[selectedScene].nakedEyeImage}
           alt="scene"
           className="absolute top-0 right-0 w-full h-full object-cover"
           />
           <img
-            src={scenes[0].sceneImg[selectedLens].image.responsiveImage.src}
+            src={scenes[selectedScene].sceneImg[selectedLens].image.responsiveImage.src}
             alt="scene"
             className="absolute right-0 top-0 w-full h-full object-cover"
             style={imageStyle}
