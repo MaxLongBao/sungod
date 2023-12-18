@@ -23,8 +23,8 @@ const WindowFrame = ({ products, scenes, sceneSelector }) => {
           />
         </div>
         <div className="window__scene col-span-2 h-full relative">
-          { scenes && <Scene scenes={scenes} selectedLens={selectedLens} selectedScene={selectedScene}/> }
-          { selectedLens && scenes[selectedScene].sceneImg[selectedLens]  && <SceneSelector sceneSelector={sceneSelector} handleSceneChange={handleSceneChange} /> }
+          { scenes.length && <Scene scenes={scenes} selectedLens={selectedLens} selectedScene={selectedScene}/> }
+          { selectedLens.length && scenes[selectedScene].sceneImg[selectedLens]  && <SceneSelector sceneSelector={sceneSelector} handleSceneChange={handleSceneChange} /> }
         </div>
       </div>
     </div>
