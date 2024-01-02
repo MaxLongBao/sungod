@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sungod/static/css/main.7c9e4eec.css",
+    "main.js": "/sungod/static/js/main.67cd3c4b.js",
+    "index.html": "/sungod/index.html",
+    "main.7c9e4eec.css.map": "/sungod/static/css/main.7c9e4eec.css.map",
+    "main.67cd3c4b.js.map": "/sungod/static/js/main.67cd3c4b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c9e4eec.css",
+    "static/js/main.67cd3c4b.js"
+  ]
+}
